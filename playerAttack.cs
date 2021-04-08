@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class playerAttack : MonoBehaviour
 {
+    public projectileBehaviour RockPrefab;
+    public Transform LaunchOffset;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (!playerVariable.isJumping)
-            {
-                playerVariable.isAttacking[0] = true;
-            }
+            Instantiate(RockPrefab, LaunchOffset.position, transform.rotation);
         }
     }
 }
